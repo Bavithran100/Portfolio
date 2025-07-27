@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+import linkedinImage from '../assets/linkedin_image11.jpg';
+import githubImage from '../assets/github.jpg';
+import twitterImage from '../assets/twitter_image.jpg';
+import leetcodeImage from '../assets/leetcode_image.png';
+
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -50,16 +55,16 @@ function Contact() {
           <p><strong>Phone:</strong> <a href="tel:+919344743117">9344743117</a></p>
           <div className="social-icons contact-icons">
             <a href="https://www.linkedin.com/in/bavithran-n-04b74b333" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <img src="/src/assets/linkedin_image11.jpg" alt="LinkedIn" style={{ width: '20px', height: '20px' }} />
+              <img src={linkedinImage} alt="LinkedIn" style={{ width: '20px', height: '20px' }} />
             </a>
             <a href="https://github.com/Bavithran777" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-             <img src="/src/assets/github.jpg" alt="github" style={{ width: '20px', height: '20px' }} />
+             <img src={githubImage} alt="github" style={{ width: '20px', height: '20px' }} />
             </a>
             <a href="https://x.com/BavithranN10" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-             <img src="/src/assets/twitter_image.jpg" alt="github" style={{ width: '20px', height: '20px' }} />
+             <img src={twitterImage} alt="github" style={{ width: '20px', height: '20px' }} />
             </a>
             <a href="https://leetcode.com/u/Bavithran777/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
-             <img src="/src/assets/leetcode_image.png" alt="leetcode" style={{ width: '20px', height: '20px' }} />
+             <img src={leetcodeImage} alt="leetcode" style={{ width: '20px', height: '20px' }} />
             </a>
           </div>
         </div>
