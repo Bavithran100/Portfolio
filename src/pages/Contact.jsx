@@ -57,7 +57,7 @@ function Contact() {
             <a href="https://www.linkedin.com/in/bavithran-n-04b74b333" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <img src={linkedinImage} alt="LinkedIn" style={{ width: '20px', height: '20px' }} />
             </a>
-            <a href="https://github.com/Bavithran777" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/Bavithran100" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
              <img src={githubImage} alt="github" style={{ width: '20px', height: '20px' }} />
             </a>
             <a href="https://x.com/BavithranN10" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
