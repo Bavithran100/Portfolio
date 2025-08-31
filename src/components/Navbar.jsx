@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Navbar({ currentSection }) {
-  const handleSmoothScroll = (event, targetId) => {
+function Navbar({ currentSection, onNavigate }) {
+  const [animating, setAnimating] = useState(false);
+
+  const handleNavigation = (event, page) => {
     event.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const topOffset = targetElement.offsetTop;
-      window.scrollTo({
-        top: topOffset,
-        behavior: 'smooth'
-      });
-    }
+    if (animating) return;
+    setAnimating(true);
+
+    onNavigate(page);
+
+    // Remove animation lock after short delay
+    setTimeout(() => {
+      setAnimating(false);
+    }, 300);
   };
 
   return (
@@ -21,7 +24,7 @@ function Navbar({ currentSection }) {
           <a
             href="#home"
             className={currentSection === 'home' ? 'active' : ''}
-            onClick={(e) => handleSmoothScroll(e, 'home')}
+            onClick={(e) => handleNavigation(e, 'home')}
           >
             Home
           </a>
@@ -30,7 +33,7 @@ function Navbar({ currentSection }) {
           <a
             href="#about"
             className={currentSection === 'about' ? 'active' : ''}
-            onClick={(e) => handleSmoothScroll(e, 'about')}
+            onClick={(e) => handleNavigation(e, 'about')}
           >
             About
           </a>
@@ -39,7 +42,7 @@ function Navbar({ currentSection }) {
           <a
             href="#projects"
             className={currentSection === 'projects' ? 'active' : ''}
-            onClick={(e) => handleSmoothScroll(e, 'projects')}
+            onClick={(e) => handleNavigation(e, 'projects')}
           >
             Projects
           </a>
@@ -48,7 +51,7 @@ function Navbar({ currentSection }) {
           <a
             href="#resume"
             className={currentSection === 'resume' ? 'active' : ''}
-            onClick={(e) => handleSmoothScroll(e, 'resume')}
+            onClick={(e) => handleNavigation(e, 'resume')}
           >
             Resume
           </a>
@@ -57,7 +60,7 @@ function Navbar({ currentSection }) {
           <a
             href="#contact"
             className={currentSection === 'contact' ? 'active' : ''}
-            onClick={(e) => handleSmoothScroll(e, 'contact')}
+            onClick={(e) => handleNavigation(e, 'contact')}
           >
             Contact
           </a>

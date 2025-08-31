@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,36 +9,29 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState('home');
+  const [currentPage, setCurrentPage] = useState('home');
 
-  useEffect(() => {
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrentSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Home onNavigate={setCurrentPage} />;
+      case 'about':
+        return <About />;
+      case 'projects':
+        return <Projects />;
+      case 'resume':
+        return <Resume />;
+      case 'contact':
+        return <Contact />;
+      default:
+        return <Home />;
+    }
+  };
 
   return (
     <div className="app">
-      <Navbar currentSection={currentSection} />
-      <Home />
-      <About />
-      <Projects />
-      <Resume />
-      <Contact />
+      <Navbar currentSection={currentPage} onNavigate={setCurrentPage} />
+      {renderPage()}
       <Footer />
     </div>
   );

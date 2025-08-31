@@ -5,7 +5,7 @@ import githubImage from '../assets/github.jpg';
 import twitterImage from '../assets/twitter_image.jpg';
 import leetcodeImage from '../assets/leetcode_image.png';
 
-function Home() {
+function Home({ onNavigate }) {
   return (
     <section id="home" className="hero-section fade-in">
       <div className="hero-image">
@@ -23,7 +23,7 @@ function Home() {
         </p>
         
        
-        <a href="#contact" className="hire-me-btn"  >Hire me <br></br></a><br></br>
+        <button className="hire-me-btn" onClick={() => onNavigate('contact')}>Hire me</button><br></br>
         <div className="social-icons contact-icons">
             <a href="https://www.linkedin.com/in/bavithran-n-04b74b333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <img src={linkedinImage} alt="LinkedIn" style={{ width: '20px', height: '20px' }} />
